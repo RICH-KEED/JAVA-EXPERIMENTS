@@ -45,6 +45,20 @@ public class FileHandling {
             System.out.println("An error occurred");
         }
 
+        try{
+            Scanner filer = new Scanner(new File("student.txt"));
+            while(filer.hasNextLine())
+            {
+                String data = filer.nextLine();
+                System.out.println(data);
+            }
+            filer.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("An error occurred");
+        }
+
     }
 
 }
