@@ -1,10 +1,21 @@
 import java.util.*;
 import java.io.*;
 
-class stream {
+public class FileHandling {
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter your name :");
+        String Name = sc.nextLine();
+
+        System.out.println("Enter your roll number :");
+        Integer Roll_no = sc.nextInt();
+
+        System.out.println("Enter your branch :");
+        String Branch = sc.next();
         
-        File file = new File("input.txt");
+        File file = new File("student.txt");
 
         try {
             if(file.createNewFile())
@@ -22,8 +33,10 @@ class stream {
         }
 
         try {
-            FileWriter w = new FileWriter("input.txt");
-            w.write("Abhineet");
+            FileWriter w = new FileWriter("student.txt");
+            w.write("Name: " + Name + "\n");
+            w.write("Roll number: " + Roll_no + "\n");
+            w.write("Branch: " + Branch);
             w.close();
             System.out.println("File closed");
         }
@@ -32,17 +45,6 @@ class stream {
             System.out.println("An error occurred");
         }
 
-        try {
-            Scanner sc = new Scanner(file);
-            while(sc.hasNextLine())
-            {
-                String line = sc.nextLine();
-                System.out.println(line);
-            }
-        }
-        catch(FileNotFoundException e)
-        {
-            System.out.println("File not found");
-        }
     }
+
 }
